@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>day 5</title>
+    <style>
+       
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height:200vh;
+           
+        }
+        header {
+            border: 2px dotted black;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            border: 2px dotted black;
+            padding: 5px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .content {
+            display: flex;
+            flex: 1; /*When screen shrinks, content will adjust with respect to the screen size.*/
+            flex-wrap: wrap; 
+            padding: 10px;
+            gap: 10px;
+        }
+        section, aside, .section2 {
+            border: 2px dotted black;
+            padding: 10px;
+            text-align: center;
+            flex: 1 1 250px; /* section, main, article shrink and grow with respect to the screen size*/
+            min-height: 300px;
+        }
+        main {
+           max-width: 100%;
+            padding: 10px;
+            margin:10px;
+            text-align:center;
+            height: 300px;
+            border: 2px dotted black ;
+            border-radius:3px;
+        }
+        footer {
+            border: 2px dotted black;
+            padding: 10px;
+            text-align: center;
+        }
+        .f {
+ background-color: black;
+ color: aqua; 
+ padding: 20px;
+max-width: 600px;
+max-height: 100%;
+    margin: 20px auto;
+    border-radius: 8px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      color: aqua;
+    }
+
+    input {
+      width: 90%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid aqua;
+      border-radius: 4px;
+      color: aqua;
+      background-color: transparent;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: aqua;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      background-color: white;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ddd;
+    }
+    
+    /*Media query is used to manage the size and position of elements based on screen size. example :*/
+    @media screen and (min-width: 400px) and (max-width:700px)  {
+
+        body {
+            background-color: red;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>this is a header</header>
+        <nav>this is a nav</nav>
+        <div class="content">
+            <section>
+
+
+       
+        <iframe 
+        src="http://www.webteampl.com/" 
+        width="100%"
+        height="100%"
+       >
+    </iframe>
+       
+            </section>
+            <section class="section2">this a section2</section>
+            <aside>
+                <div class="f">
+                <h2>Student Registration</h2>
+                <form id="userForm">
+                <label>First Name:
+                <input type="text" id="firstName" required>
+                </label>
+                <label>Last Name:
+                <input type="text" id="lastName" required>
+                </label>
+                <abel>Mobile Number:
+                <input type="text" id="mobile" required>
+                </label>
+                <label>Address:
+                <input type="text" id="address" required>
+                </label>
+                <label>College:
+                <input type="text" id="college" required>
+                </label>
+                <label>10th Percentage:
+                 <input type="text" id="percent10" required>
+                 </label>
+                <label>12th Percentage:
+                 <input type="text" id="percent12" required>
+                </label>
+                <button type="submit">Submit</button>
+                </form>
+                </div></aside>
+            
+
+        </div>
+        <main>
+            <div id="dataTableContainer">
+                <table id="dataTable">
+                <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                 <th>Mobile</th>
+                <th>Address</th>
+                <th>College</th>
+                <th>10th %</th>
+                <th>12th %</th>
+                </tr>
+                </table>
+                </div>
+        </main>
+  
+        <footer>this a footer</footer>
+    </div>
+    <script>
+        const form = document.getElementById("userForm");
+        const table = document.getElementById("dataTable")
+        form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const data = [document.getElementById("firstName").value,document.getElementById("lastName").value,document.getElementById("mobile").value,document.getElementById("address").value,document.getElementById("college").value,document.getElementById("percent10").value,document.getElementById("percent12").value];
+        const newRow = table.insertRow();
+        data.forEach(value => {
+        const cell = newRow.insertCell();
+        cell.textContent = value;
+        });
+        form.reset(); 
+        });
+        </script>
+</body>
+</html>
